@@ -31,4 +31,9 @@ nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gD <Plug>(lcn-definition)
 nmap <silent> gR <Plug>(lcn-rename)
 
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
