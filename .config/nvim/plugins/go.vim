@@ -10,6 +10,14 @@ function! s:build_go_files()
   endif
 endfunction
 
+
+function! s:get_go_package()
+    let l:line = trim(getline("."))
+    echo "go get ".line
+
+    call system("go get ". line)
+endfunction
+
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
@@ -62,10 +70,10 @@ augroup go
   au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
   au FileType go imap <leader>dr <esc>:<C-u>GoDeclsDir<cr>
   au FileType go nmap <leader>rb :<C-u>call <SID>build_go_files()<CR>
+  au FileType go nmap <leader>gt :<C-u>call <SID>get_go_package()<CR>
   au FileType go inoremap <expr><TAB>  pumvisible() ? "\<C-x><C-o>" : "\<TAB>"
 
   " au filetype go inoremap <buffer> <Tab> .<C-x><C-o>
 
 augroup END
-
 
